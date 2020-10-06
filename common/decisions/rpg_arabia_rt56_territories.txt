@@ -1,0 +1,151 @@
+rpg_category_territories_arabia = {
+	rpg_arabia_hatay = {
+		allowed = {
+			NOT = {
+				original_tag = SYR #Syria
+				original_tag = TUR #Turkey
+				original_tag = R03 #Arabia
+			}
+		}
+		available = {
+			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = rpg_arabia_required_states_hatay
+                controls_state = 810 #Hatay
+			}
+		}
+		visible = {
+            has_global_flag = rpg_arabia_flag
+			R03 = {
+				OR = {
+					is_puppet_of = FROM
+					is_in_faction_with = FROM
+				}
+			}
+			NOT = { 
+                original_tag = SYR #Syria
+				original_tag = TUR #Turkey
+				original_tag = R03 #Arabia
+                has_global_flag = rpg_arabia_hatay_flag
+            }
+		}
+		complete_effect = {
+			custom_effect_tooltip = rpg_arabia_coring_states_hatay
+			custom_effect_tooltip = rpg_arabia_transfer_states_hatay
+			hidden_effect = {
+				810 = { add_core_of = R03 } #Hatay
+				R03 = {
+					transfer_state = 810 #Hatay
+				}
+			}
+			hidden_effect = {
+				set_global_flag = rpg_arabia_hatay_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	rpg_arabia_west_bank = {
+		allowed = {
+			NOT = {
+				original_tag = PAL #Palestine
+				original_tag = R03 #Arabia
+			}
+		}
+		available = {
+			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = rpg_arabia_required_states_west_bank
+                controls_state = 830 #West Bank
+			}
+		}
+		visible = {
+            has_global_flag = rpg_arabia_flag
+			R03 = {
+				OR = {
+					is_puppet_of = FROM
+					is_in_faction_with = FROM
+				}
+			}
+			NOT = { 
+				original_tag = PAL #Palestine
+				original_tag = R03 #Arabia
+                has_global_flag = rpg_arabia_west_bank_flag
+            }
+		}
+		complete_effect = {
+			custom_effect_tooltip = rpg_arabia_coring_states_west_bank
+			custom_effect_tooltip = rpg_arabia_transfer_states_west_bank
+			hidden_effect = {
+				830 = { add_core_of = R03 } #West Bank
+				R03 = {
+					transfer_state = 830 #West Bank
+				}
+			}
+			hidden_effect = {
+				set_global_flag = rpg_arabia_west_bank_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	rpg_arabia_gaza = {
+		allowed = {
+			NOT = {
+				original_tag = PAL #Palestine
+				original_tag = R03 #Arabia
+			}
+		}
+		available = {
+			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = rpg_arabia_required_states_gaza
+                controls_state = 831 #Gaza
+			}
+		}
+		visible = {
+            has_global_flag = rpg_arabia_flag
+			R03 = {
+				OR = {
+					is_puppet_of = FROM
+					is_in_faction_with = FROM
+				}
+			}
+			NOT = { 
+				original_tag = PAL #Palestine
+				original_tag = R03 #Arabia
+                has_global_flag = rpg_arabia_gaza_flag
+            }
+		}
+		complete_effect = {
+			custom_effect_tooltip = rpg_arabia_coring_states_gaza
+			custom_effect_tooltip = rpg_arabia_transfer_states_gaza
+			hidden_effect = {
+				831 = { add_core_of = R03 } #Gaza
+				R03 = {
+					transfer_state = 831 #Gaza
+				}
+			}
+			hidden_effect = {
+				set_global_flag = rpg_arabia_gaza_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

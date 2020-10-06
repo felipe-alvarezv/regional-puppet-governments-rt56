@@ -1,0 +1,247 @@
+rpg_category_territories_indochina = {
+	rpg_indochina_johor = {
+		allowed = {
+			NOT = {
+				original_tag = BRM #Malaya
+				original_tag = R16 #Indochina
+			}
+		}
+		available = {
+			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = rpg_indochina_required_states_johor
+                controls_state = 799 #Johor
+			}
+		}
+		visible = {
+            has_global_flag = rpg_indochina_flag
+			R16 = {
+				OR = {
+					is_puppet_of = FROM
+					is_in_faction_with = FROM
+				}
+			}
+			NOT = { 
+                original_tag = BRM #Malaya
+				original_tag = R16 #Indochina
+                has_global_flag = rpg_indochina_johor_flag
+            }
+		}
+		complete_effect = {
+			custom_effect_tooltip = rpg_indochina_coring_states_johor
+			custom_effect_tooltip = rpg_indochina_transfer_states_johor
+			hidden_effect = {
+				799 = { add_core_of = R16 } #Johor
+				R16 = {
+					transfer_state = 799 #Johor
+				}
+			}
+			hidden_effect = {
+				set_global_flag = rpg_indochina_johor_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	rpg_indochina_terengganu = {
+		allowed = {
+			NOT = {
+				original_tag = MAL #Malaya
+				original_tag = R16 #Indochina
+			}
+		}
+		available = {
+			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = rpg_indochina_required_states_terengganu
+                controls_state = 801 #Terengganu
+			}
+		}
+		visible = {
+            has_global_flag = rpg_indochina_flag
+			R16 = {
+				OR = {
+					is_puppet_of = FROM
+					is_in_faction_with = FROM
+				}
+			}
+			NOT = { 
+                original_tag = MAL #Malaya
+				original_tag = R16 #Indochina
+                has_global_flag = rpg_indochina_terengganu_flag
+            }
+		}
+		complete_effect = {
+			custom_effect_tooltip = rpg_indochina_coring_states_terengganu
+			custom_effect_tooltip = rpg_indochina_transfer_states_terengganu
+			hidden_effect = {
+				801 = { add_core_of = R16 } #Terengganu
+				R16 = {
+					transfer_state = 801 #Terengganu
+				}
+			}
+			hidden_effect = {
+				set_global_flag = rpg_indochina_terengganu_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	rpg_indochina_kedah = {
+		allowed = {
+			NOT = {
+				original_tag = MAL #Malaya
+				original_tag = R16 #Indochina
+			}
+		}
+		available = {
+			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = rpg_indochina_required_states_kedah
+                controls_state = 802 #Kedah
+			}
+		}
+		visible = {
+            has_global_flag = rpg_indochina_flag
+			R16 = {
+				OR = {
+					is_puppet_of = FROM
+					is_in_faction_with = FROM
+				}
+			}
+			NOT = { 
+                original_tag = MAL #Malaya
+				original_tag = R16 #Indochina
+                has_global_flag = rpg_indochina_kedah_flag
+            }
+		}
+		complete_effect = {
+			custom_effect_tooltip = rpg_indochina_coring_states_kedah
+			custom_effect_tooltip = rpg_indochina_transfer_states_kedah
+			hidden_effect = {
+				802 = { add_core_of = R16 } #Kedah
+				R16 = {
+					transfer_state = 802 #Kedah
+				}
+			}
+			hidden_effect = {
+				set_global_flag = rpg_indochina_kedah_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	rpg_indochina_pahang = {
+		allowed = {
+			NOT = {
+				original_tag = MAL #Malaya
+				original_tag = R16 #Indochina
+			}
+		}
+		available = {
+			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = rpg_indochina_required_states_pahang
+                controls_state = 803 #Pahang
+			}
+		}
+		visible = {
+            has_global_flag = rpg_indochina_flag
+			R16 = {
+				OR = {
+					is_puppet_of = FROM
+					is_in_faction_with = FROM
+				}
+			}
+			NOT = { 
+                original_tag = MAL #Malaya
+				original_tag = R16 #Indochina
+                has_global_flag = rpg_indochina_pahang_flag
+            }
+		}
+		complete_effect = {
+			custom_effect_tooltip = rpg_indochina_coring_states_pahang
+			custom_effect_tooltip = rpg_indochina_transfer_states_pahang
+			hidden_effect = {
+				803 = { add_core_of = R16 } #Pahang
+				R16 = {
+					transfer_state = 803 #Pahang
+				}
+			}
+			hidden_effect = {
+				set_global_flag = rpg_indochina_pahang_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	rpg_indochina_riau_islands = {
+		allowed = {
+			NOT = {
+				original_tag = INS #Indonesia
+				original_tag = R16 #Indochina
+			}
+		}
+		available = {
+			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = rpg_indochina_required_states_riau_islands
+                controls_state = 805 #Riau Islands
+			}
+		}
+		visible = {
+            has_global_flag = rpg_indochina_flag
+			R16 = {
+				OR = {
+					is_puppet_of = FROM
+					is_in_faction_with = FROM
+				}
+			}
+			NOT = { 
+                original_tag = INS #Indonesia
+				original_tag = R16 #Indochina
+                has_global_flag = rpg_indochina_riau_islands_flag
+            }
+		}
+		complete_effect = {
+			custom_effect_tooltip = rpg_indochina_coring_states_riau_islands
+			custom_effect_tooltip = rpg_indochina_transfer_states_riau_islands
+			hidden_effect = {
+				805 = { add_core_of = R16 } #Riau Islands
+				R16 = {
+					transfer_state = 805 #Riau Islands
+				}
+			}
+			hidden_effect = {
+				set_global_flag = rpg_indochina_riau_islands_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

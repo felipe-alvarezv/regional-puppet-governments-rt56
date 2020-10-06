@@ -1,0 +1,53 @@
+rpg_category_territories_greece_turkey = {
+	rpg_greece_turkey_hatay = {
+		allowed = {
+			NOT = {
+				original_tag = SYR #Syria
+				original_tag = TUR #Turkey
+				original_tag = R14 #Greece-Turkey
+			}
+		}
+		available = {
+			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = rpg_greece_turkey_required_states_hatay
+                controls_state = 810 #Hatay
+			}
+		}
+		visible = {
+            has_global_flag = rpg_greece_turkey_flag
+			R14 = {
+				OR = {
+					is_puppet_of = FROM
+					is_in_faction_with = FROM
+				}
+			}
+			NOT = { 
+                original_tag = SYR #Syria
+				original_tag = TUR #Turkey
+				original_tag = R14 #Greece-Turkey
+                has_global_flag = rpg_greece_turkey_hatay_flag
+            }
+		}
+		complete_effect = {
+			custom_effect_tooltip = rpg_greece_turkey_coring_states_hatay
+			custom_effect_tooltip = rpg_greece_turkey_transfer_states_hatay
+			hidden_effect = {
+				810 = { add_core_of = R14 } #Hatay
+				R14 = {
+					transfer_state = 810 #Hatay
+				}
+			}
+			hidden_effect = {
+				set_global_flag = rpg_greece_turkey_hatay_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

@@ -1,0 +1,128 @@
+rpg_category = {
+	rpg_indonesia = {
+		allowed = {
+			NOT = {
+				original_tag = INS #Dutch East Indies
+				original_tag = MAL #Malaysia
+				original_tag = R17 #Indonesia
+			}
+		}
+		available = {
+			is_subject = no
+			#North Borneo
+			custom_trigger_tooltip = {
+				tooltip = rpg_indonesia_required_states_north_borneo
+				controls_state = 333 #North Borneo
+			}
+			#Kalimantan
+			custom_trigger_tooltip = {
+				tooltip = rpg_indonesia_required_states_kalimantan
+				controls_state = 334 #Kalimantan
+			}
+			#Java
+			custom_trigger_tooltip = {
+				tooltip = rpg_indonesia_required_states_java
+				controls_state = 335 #Java
+			}
+			#Lesser Sunda
+			custom_trigger_tooltip = {
+				tooltip = rpg_indonesia_required_states_lesser_sunda
+				controls_state = 667 #Lesser Sunda
+			}
+			#The Moluccas
+			custom_trigger_tooltip = {
+				tooltip = rpg_indonesia_required_states_the_moluccas
+				controls_state = 668 #The Moluccas
+			}
+			#West Papua
+			custom_trigger_tooltip = {
+				tooltip = rpg_indonesia_required_states_west_papua
+				controls_state = 669 #West Papua
+			}
+			#Sumatra
+			custom_trigger_tooltip = {
+				tooltip = rpg_indonesia_required_states_sumatra
+				controls_state = 672 #Sumatra
+			}
+			#Sulawesi
+			custom_trigger_tooltip = {
+				tooltip = rpg_indonesia_required_states_sulawesi
+				controls_state = 673 #Sulawesi
+			}
+			#Aru Islads
+			custom_trigger_tooltip = {
+				tooltip = rpg_indonesia_required_states_aru_islands
+				controls_state = 738 #Aru Islands
+			}
+			#Sabah
+			custom_trigger_tooltip = {
+				tooltip = rpg_indonesia_required_states_sabah
+				controls_state = 804 #Sabah
+			}
+		}
+		visible = {
+			OR = {
+				controls_state = 333 #North Borneo
+				controls_state = 335 #Java
+				controls_state = 672 #Sumatra
+			}
+			NOT = { 
+                original_tag = INS #Dutch East Indies
+				original_tag = MAL #Malaysia
+				original_tag = R17 #Indonesia
+                has_global_flag = rpg_indonesia_flag
+            }
+		}
+		complete_effect = {
+			hidden_effect = {
+				333 = { add_core_of = R17 } #North Borneo
+				334 = { add_core_of = R17 } #Kalimantan
+				335 = { add_core_of = R17 } #Java
+				667 = { add_core_of = R17 } #Lesser Sunda
+				668 = { add_core_of = R17 } #The Moluccas
+				669 = { add_core_of = R17 } #West Papua
+				672 = { add_core_of = R17 } #Sumatra
+				673 = { add_core_of = R17 } #Sulawesi
+				738 = { add_core_of = R17 } #Aru Islands
+				804 = { add_core_of = R17 } #Sabah
+			}
+			custom_effect_tooltip = rpg_indonesia_coring_states
+			custom_effect_tooltip = rpg_indonesia_transfer_states
+			#Set compliance to 80 in all cores and instantiate collaboration government
+			custom_effect_tooltip = rpg_indonesia_puppet
+			hidden_effect = {
+				every_state = {
+					limit = {
+						is_core_of = R17
+					}
+					set_compliance = 80
+				}
+				
+				if = {
+					limit = { has_dlc = "La Resistance" }
+					set_temp_variable = { country_to_initiate = R17 }
+					instantiate_collaboration_government = yes
+				}
+				else = {
+					release = R17
+					puppet = R17
+				}
+			}
+			#News event, set local flag, and set global flag
+			hidden_effect = {
+				ROOT = {
+					set_country_flag = rpg_indonesia_country_flag
+				}
+				news_event = { id = rpg_news.17 hours = 6 }
+				set_global_flag = rpg_indonesia_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

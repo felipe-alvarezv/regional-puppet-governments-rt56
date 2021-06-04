@@ -1,0 +1,163 @@
+rpg_category = {
+	rpg_west_germany = {
+		allowed = {
+			NOT = {
+				original_tag = DDR #East Germany
+				original_tag = GER #Germany
+				original_tag = WGR #West Germany
+				original_tag = R13 #Germany
+				original_tag = R19 #North Germany
+				original_tag = R25 #South Germany
+				original_tag = R31 #West Germany
+				original_tag = R32 #East Germany
+			}
+		}
+		available = {
+			is_subject = no
+			#Moselland
+			custom_trigger_tooltip = {
+				tooltip = rpg_west_germany_required_states_moselland
+				controls_state = 42 #Moselland
+			}
+			#Wurttemberg
+			custom_trigger_tooltip = {
+				tooltip = rpg_west_germany_required_states_wurttemberg
+				controls_state = 50 #Wurttemberg
+			}
+			#Rhineland
+			custom_trigger_tooltip = {
+				tooltip = rpg_west_germany_required_states_rhineland
+				controls_state = 51 #Rhineland
+			}
+			#Oberbayern
+			custom_trigger_tooltip = {
+				tooltip = rpg_west_germany_required_states_oberbayern
+				controls_state = 52 #Oberbayern
+			}
+			#Niederbayern
+			custom_trigger_tooltip = {
+				tooltip = rpg_west_germany_required_states_niederbayern
+				controls_state = 53 #Niederbayern
+			}
+			#Franken
+			custom_trigger_tooltip = {
+				tooltip = rpg_west_germany_required_states_franken
+				controls_state = 54 #Franken
+			}
+			#Hessen
+			custom_trigger_tooltip = {
+				tooltip = rpg_west_germany_required_states_hessen
+				controls_state = 55 #Hessen
+			}
+			#Weser-Ems
+			custom_trigger_tooltip = {
+				tooltip = rpg_west_germany_required_states_weser_ems
+				controls_state = 56 #Weser-Ems
+			}
+			#Westfalen
+			custom_trigger_tooltip = {
+				tooltip = rpg_west_germany_required_states_westfalen
+				controls_state = 57 #Westfalen
+			}
+			#Schleswig-Holstein
+			custom_trigger_tooltip = {
+				tooltip = rpg_west_germany_required_states_schleswig_holstein
+				controls_state = 58 #Schleswig-Holstein
+			}
+			#Hannover
+			custom_trigger_tooltip = {
+				tooltip = rpg_west_germany_required_states_hannover
+				controls_state = 59 #Hannover
+			}
+			#Ostrhineland
+            custom_trigger_tooltip = {
+                tooltip = rpg_west_germany_required_states_ostrhineland
+                controls_state = 807 #Ostrhineland
+            }
+            #Frankfurt
+            custom_trigger_tooltip = {
+                tooltip = rpg_west_germany_required_states_frankfurt
+                controls_state = 808 #Frankfurt
+            }
+            #Baden
+            custom_trigger_tooltip = {
+                tooltip = rpg_west_germany_required_states_baden
+                controls_state = 809 #Baden
+            }
+		}
+		visible = {
+			OR = {
+				controls_state = 51 #Rhineland
+			}
+			NOT = {
+				original_tag = DDR #East Germany
+				original_tag = GER #Germany
+				original_tag = WGR #West Germany
+				original_tag = R13 #Germany
+				original_tag = R19 #North Germany
+				original_tag = R25 #South Germany
+				original_tag = R31 #West Germany
+				original_tag = R32 #East Germany
+                has_global_flag = rpg_west_germany_flag
+            }
+		}
+		complete_effect = {
+			hidden_effect = {
+				42 = { add_core_of = R31 } #Moselland
+				50 = { add_core_of = R31 } #Wurttemberg
+				51 = { add_core_of = R31 } #Rhineland
+				52 = { add_core_of = R31 } #Oberbayern
+				53 = { add_core_of = R31 } #Niederbayern
+				54 = { add_core_of = R31 } #Franken
+				55 = { add_core_of = R31 } #Hessen
+				56 = { add_core_of = R31 } #Weser-Ems
+				57 = { add_core_of = R31 } #Westfalen
+				58 = { add_core_of = R31 } #Schleswig-Holstein
+				59 = { add_core_of = R31 } #Hannover
+				807 = { add_core_of = R31 } #Ostrhineland
+				808 = { add_core_of = R31 } #Frankfurt
+				809 = { add_core_of = R31 } #Baden
+			}
+			custom_effect_tooltip = rpg_west_germany_coring_states
+			custom_effect_tooltip = rpg_west_germany_transfer_states
+			#Set compliance to 80 in all cores and instantiate collaboration government
+			custom_effect_tooltip = rpg_west_germany_puppet
+			hidden_effect = {
+				every_state = {
+					limit = {
+						is_core_of = R31
+					}
+					set_compliance = 80
+				}
+
+				if = {
+					limit = { has_dlc = "La Resistance" }
+					set_temp_variable = { country_to_initiate = R31 }
+					instantiate_collaboration_government = yes
+				}
+				else = {
+					release = R31
+					puppet = R31
+				}
+				R31 = {
+                    transfer_technology = yes
+                }
+			}
+			#News event, set local flag, and set global flag
+			hidden_effect = {
+				ROOT = {
+					set_country_flag = rpg_west_germany_country_flag
+				}
+				news_event = { id = rpg_news.31 hours = 6 }
+				set_global_flag = rpg_west_germany_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

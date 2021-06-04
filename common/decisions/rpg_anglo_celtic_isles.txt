@@ -1,0 +1,209 @@
+rpg_category = {
+	rpg_anglo_celtic_isles = {
+		allowed = {
+			NOT = {
+				original_tag = ENG #England
+				original_tag = IRE #Ireland
+				original_tag = NIR #Northern Ireland
+				original_tag = SCO #Scotland
+				original_tag = WLS #Wales
+				original_tag = R02 #Anglo-Celtic Isles
+			}
+		}
+		available = {
+			is_subject = no
+			#Leinster
+			custom_trigger_tooltip = {
+				tooltip = rpg_anglo_celtic_isles_required_states_leinster
+				controls_state = 113 #Leinster
+			}
+			#Northern Ireland
+			custom_trigger_tooltip = {
+				tooltip = rpg_anglo_celtic_isles_required_states_northern_ireland
+				controls_state = 119 #Northern Ireland
+			}
+			#Scottish Highlands
+			custom_trigger_tooltip = {
+				tooltip = rpg_anglo_celtic_isles_required_states_scottish_highlands
+				controls_state = 120 #Scottish Highlands
+			}
+			#Lothian
+			custom_trigger_tooltip = {
+				tooltip = rpg_anglo_celtic_isles_required_states_lothian
+				controls_state = 121 #Lothian
+			}
+			#Wales
+			custom_trigger_tooltip = {
+				tooltip = rpg_anglo_celtic_isles_required_states_wales
+				controls_state = 122 #Wales
+			}
+			#South-West England
+			custom_trigger_tooltip = {
+				tooltip = rpg_anglo_celtic_isles_required_states_south_west_england
+				controls_state = 123 #South-West England
+			}
+			#East Anglia
+			custom_trigger_tooltip = {
+				tooltip = rpg_anglo_celtic_isles_required_states_east_anglia
+				controls_state = 125 #East Anglia
+			}
+			#Greater London Area
+			custom_trigger_tooltip = {
+				tooltip = rpg_anglo_celtic_isles_required_states_greater_london_area
+				controls_state = 126 #Greater London Area
+			}
+			#Sussex
+			custom_trigger_tooltip = {
+				tooltip = rpg_anglo_celtic_isles_required_states_sussex
+				controls_state = 127 #Sussex
+			}
+			#West Midlands
+			custom_trigger_tooltip = {
+				tooltip = rpg_anglo_celtic_isles_required_states_west_midlands
+				controls_state = 128 #West Midlands
+			}
+			#East Midlands
+			custom_trigger_tooltip = {
+				tooltip = rpg_anglo_celtic_isles_required_states_east_midlands
+				controls_state = 129 #East Midlands
+			}
+			#Yorkshire
+			custom_trigger_tooltip = {
+				tooltip = rpg_anglo_celtic_isles_required_states_yorkshire
+				controls_state = 130 #Yorkshire
+			}
+			#Northern England
+			custom_trigger_tooltip = {
+				tooltip = rpg_anglo_celtic_isles_required_states_northern_england
+				controls_state = 131 #Northern England
+			}
+			#Lancashire
+			custom_trigger_tooltip = {
+				tooltip = rpg_anglo_celtic_isles_required_states_lancashire
+				controls_state = 132 #Lancashire
+			}
+			#Lanark
+			custom_trigger_tooltip = {
+				tooltip = rpg_anglo_celtic_isles_required_states_lanark
+				controls_state = 133 #Lanark
+			}
+			#Connaught
+			custom_trigger_tooltip = {
+				tooltip = rpg_anglo_celtic_isles_required_states_connaught
+				controls_state = 134 #Connaught
+			}
+			#Munster
+			custom_trigger_tooltip = {
+				tooltip = rpg_anglo_celtic_isles_required_states_munster
+				controls_state = 135 #Munster
+			}
+			#Aberdeenshire
+			custom_trigger_tooltip = {
+				tooltip = rpg_anglo_celtic_isles_required_states_aberdeenshire
+				controls_state = 136 #Aberdeenshire
+			}
+			#Gloucestershire
+			custom_trigger_tooltip = {
+				tooltip = rpg_anglo_celtic_isles_required_states_gloucestershire
+				controls_state = 338 #Gloucestershire
+			}
+			#Shetland
+            custom_trigger_tooltip = {
+                tooltip = rpg_anglo_celtic_isles_required_states_shetland
+                controls_state = 812 #Shetland
+            }
+            #Orkney
+            custom_trigger_tooltip = {
+                tooltip = rpg_anglo_celtic_isles_required_states_orkney
+                controls_state = 841 #Orkney
+            }
+		}
+		visible = {
+			OR = {
+                controls_state = 113 #Dublin
+				controls_state = 121 #Lothian
+				controls_state = 122 #Wales
+				controls_state = 126 #London
+			}
+			NOT = {
+                original_tag = ENG #England
+				original_tag = IRE #Ireland
+				original_tag = NIR #Northern Ireland
+				original_tag = SCO #Scotland
+				original_tag = WLS #Wales
+				original_tag = R02 #Anglo-Celtic Isles
+                has_global_flag = rpg_anglo_celtic_isles_flag
+            }
+		}
+		complete_effect = {
+			hidden_effect = {
+				113 = { add_core_of = R02 } #Leinster
+				119 = { add_core_of = R02 } #Northern Ireland
+				120 = { add_core_of = R02 } #Scottish Highlands
+				121 = { add_core_of = R02 } #Lothian
+				122 = { add_core_of = R02 } #Wales
+				123 = { add_core_of = R02 } #South-West England
+				125 = { add_core_of = R02 } #East Anglia
+				126 = { add_core_of = R02 } #Greater London Area
+				127 = { add_core_of = R02 } #Sussex
+				128 = { add_core_of = R02 } #West Midlands
+				129 = { add_core_of = R02 } #East Midlands
+				130 = { add_core_of = R02 } #Yorkshire
+				131 = { add_core_of = R02 } #Northern England
+				132 = { add_core_of = R02 } #Lancashire
+				133 = { add_core_of = R02 } #Lanark
+				134 = { add_core_of = R02 } #Connaught
+				135 = { add_core_of = R02 } #Munster
+				136 = { add_core_of = R02 } #Aberdeenshire
+				338 = { add_core_of = R02 } #Gloucestershire
+				812 = { add_core_of = R02 } #Shetland
+				841 = { add_core_of = R02 } #Orkney
+			}
+			custom_effect_tooltip = rpg_anglo_celtic_isles_coring_states
+			custom_effect_tooltip = rpg_anglo_celtic_isles_transfer_states
+			#Set compliance to 80 in all cores and instantiate collaboration government
+			custom_effect_tooltip = rpg_anglo_celtic_isles_puppet
+			hidden_effect = {
+				every_state = {
+					limit = {
+						is_core_of = R02
+					}
+					set_compliance = 80
+				}
+
+				if = {
+					limit = { has_dlc = "La Resistance" }
+					R02 = {
+						load_oob = "R02_1936"
+	                    transfer_technology = yes
+	                }
+					set_temp_variable = { country_to_initiate = R02 }
+					instantiate_collaboration_government = yes
+				}
+				else = {
+					R02 = {
+						load_oob = "R02_1936"
+	                    transfer_technology = yes
+	                }
+					release = R02
+					puppet = R02
+				}
+			}
+			#News event, set local flag, and set global flag
+			hidden_effect = {
+				ROOT = {
+					set_country_flag = rpg_anglo_celtic_isles_country_flag
+				}
+				news_event = { id = rpg_news.02 hours = 6 }
+				set_global_flag = rpg_anglo_celtic_isles_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

@@ -1,0 +1,100 @@
+rpg_category_territories_bulgaria = {
+	rpg_bulgaria_debar = {
+        allowed = {
+            NOT = {
+                original_tag = MAC #Macedonia
+                original_tag = R49 #Bulgaria
+            }
+        }
+        available = {
+            is_subject = no
+            custom_trigger_tooltip = {
+                tooltip = rpg_bulgaria_required_states_debar
+                controls_state = 813 #Debar
+            }
+        }
+        visible = {
+            has_global_flag = rpg_bulgaria_flag
+            R49 = {
+                OR = {
+                    is_puppet_of = FROM
+                    is_in_faction_with = FROM
+                }
+            }
+            NOT = {
+                original_tag = MAC #Macedonia
+                original_tag = R49 #Bulgaria
+                has_global_flag = rpg_bulgaria_debar_flag
+            }
+        }
+        complete_effect = {
+            custom_effect_tooltip = rpg_bulgaria_coring_states_debar
+            custom_effect_tooltip = rpg_bulgaria_transfer_states_debar
+            hidden_effect = {
+                813 = { add_core_of = R49 } #Debar
+                R49 = {
+                    transfer_state = 813 #Debar
+                }
+            }
+            hidden_effect = {
+                set_global_flag = rpg_bulgaria_debar_flag
+            }
+        }
+        ai_will_do = {
+            factor = 0
+            modifier = {
+                factor = 0
+                is_historical_focus_on = yes
+            }
+        }
+    }
+    rpg_bulgaria_northern_dobruja = {
+        allowed = {
+            NOT = {
+                original_tag = ROM #Romania
+                original_tag = R49 #Bulgaria
+            }
+        }
+        available = {
+            is_subject = no
+            custom_trigger_tooltip = {
+                tooltip = rpg_bulgaria_required_states_northern_dobruja
+                controls_state = 818 #Northern Dobruja
+            }
+        }
+        visible = {
+            has_global_flag = rpg_bulgaria_flag
+            R49 = {
+                OR = {
+                    is_puppet_of = FROM
+                    is_in_faction_with = FROM
+                }
+            }
+            NOT = {
+                original_tag = ROM #Romania
+                original_tag = R49 #Bulgaria
+                has_global_flag = rpg_bulgaria_northern_dobruja_flag
+            }
+        }
+        complete_effect = {
+            custom_effect_tooltip = rpg_bulgaria_coring_states_northern_dobruja
+            custom_effect_tooltip = rpg_bulgaria_transfer_states_northern_dobruja
+            hidden_effect = {
+                818 = { add_core_of = R49 } #Northern Dobruja
+                R49 = {
+                    transfer_state = 818 #Northern Dobruja
+                }
+            }
+            hidden_effect = {
+                set_global_flag = rpg_bulgaria_northern_dobruja_flag
+            }
+        }
+        ai_will_do = {
+            factor = 0
+            modifier = {
+                factor = 0
+                is_historical_focus_on = yes
+            }
+        }
+    }
+}

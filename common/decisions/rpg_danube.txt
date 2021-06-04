@@ -1,0 +1,128 @@
+rpg_category = {
+	rpg_danube = {
+		allowed = {
+			NOT = {
+				original_tag = CRO #Croatia
+				original_tag = CZE #Czechoslovakia
+				original_tag = HUN #Hungary
+				original_tag = ROM #Romania
+				original_tag = SER #Serbia
+				original_tag = SLO #Slovakia
+				original_tag = YUG #Yugoslavia
+				original_tag = R09 #Danube
+			}
+		}
+		available = {
+			is_subject = no
+			#Northern Hungary
+			custom_trigger_tooltip = {
+				tooltip = rpg_danube_required_states_northern_hungary
+				controls_state = 43 #Northern Hungary
+			}
+			#North Transylvania
+			custom_trigger_tooltip = {
+				tooltip = rpg_danube_required_states_north_transylvania
+				controls_state = 76 #North Transylvania
+			}
+			#Banat
+			custom_trigger_tooltip = {
+				tooltip = rpg_danube_required_states_banat
+				controls_state = 82 #Banat
+			}
+			#Crisana
+			custom_trigger_tooltip = {
+				tooltip = rpg_danube_required_states_crisana
+				controls_state = 83 #Crisana
+			}
+			#Transylvania
+			custom_trigger_tooltip = {
+				tooltip = rpg_danube_required_states_transylvania
+				controls_state = 84 #Transylvania
+			}
+			#Alfold
+			custom_trigger_tooltip = {
+				tooltip = rpg_danube_required_states_alfold
+				controls_state = 154 #Alfold
+			}
+			#Transdanubia
+			custom_trigger_tooltip = {
+				tooltip = rpg_danube_required_states_transdanubia
+				controls_state = 155 #Transdunabia
+			}
+			#Solt-Kiskun
+			custom_trigger_tooltip = {
+				tooltip = rpg_danube_required_states_solt_kiskun
+				controls_state = 840 #Solt-Kiskun
+			}
+		}
+		visible = {
+			OR = {
+				controls_state = 43 #Northern Hungary
+				controls_state = 76 #Northern Transylvania
+			}
+			NOT = {
+				original_tag = CRO #Croatia
+                original_tag = CZE #Czechoslovakia
+				original_tag = HUN #Hungary
+				original_tag = ROM #Romania
+				original_tag = SER #Serbia
+				original_tag = SLO #Slovakia
+				original_tag = YUG #Yugoslavia
+				original_tag = R09 #Danube
+                has_global_flag = rpg_danube_flag
+            }
+		}
+		complete_effect = {
+			hidden_effect = {
+				43 = { add_core_of = R09 } #Northern Hungary
+				76 = { add_core_of = R09 } #North Transylvania
+				82 = { add_core_of = R09 } #Banat
+				83 = { add_core_of = R09 } #Crisana
+				84 = { add_core_of = R09 } #Transylvania
+				154 = { add_core_of = R09 } #Alfold
+				155 = { add_core_of = R09 } #Transdanubia
+				840 = { add_core_of = R09 } #Solt-Kiskun
+			}
+			custom_effect_tooltip = rpg_danube_coring_states
+			custom_effect_tooltip = rpg_danube_transfer_states
+			#Set compliance to 80 in all cores and instantiate collaboration government
+			custom_effect_tooltip = rpg_danube_puppet
+			hidden_effect = {
+				every_state = {
+					limit = {
+						is_core_of = R09
+					}
+					set_compliance = 80
+				}
+
+				if = {
+					limit = { has_dlc = "La Resistance" }
+					set_temp_variable = { country_to_initiate = R09 }
+					instantiate_collaboration_government = yes
+				}
+				else = {
+					release = R09
+					puppet = R09
+				}
+				R09 = {
+                    transfer_technology = yes
+                }
+			}
+			#News event, set local flag, and set global flag
+			hidden_effect = {
+				ROOT = {
+					set_country_flag = rpg_danube_country_flag
+				}
+				news_event = { id = rpg_news.09 hours = 6 }
+				set_global_flag = rpg_danube_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

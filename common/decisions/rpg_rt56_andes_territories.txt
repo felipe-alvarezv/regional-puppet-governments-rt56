@@ -1,0 +1,51 @@
+rpg_category_territories_andes = {
+	rpg_andes_atacama = {
+		allowed = {
+			NOT = {
+				original_tag = CHL #Chile
+				original_tag = R01 #Andes
+			}
+		}
+		available = {
+			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = rpg_andes_required_states_atacama
+				controls_state = 817 #Atacama
+			}
+		}
+		visible = {
+			has_global_flag = rpg_andes_flag
+			R01 = {
+				OR = {
+					is_puppet_of = FROM
+					is_in_faction_with = FROM
+				}
+			}
+			NOT = {
+				original_tag = CHL #Chile
+				original_tag = R01 #Andes
+				has_global_flag = rpg_andes_atacama_flag
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = rpg_andes_coring_states_atacama
+			custom_effect_tooltip = rpg_andes_transfer_states_atacama
+			hidden_effect = {
+				817 = { add_core_of = R01 } #Atacama
+				R01 = {
+					transfer_state = 817 #Atacama
+				}
+			}
+			hidden_effect = {
+				set_global_flag = rpg_andes_atacama_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

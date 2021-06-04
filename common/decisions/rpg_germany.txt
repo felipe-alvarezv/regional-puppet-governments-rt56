@@ -1,0 +1,189 @@
+rpg_category = {
+    rpg_germany = {
+        allowed = {
+            NOT = {
+                original_tag = GER #Germany
+                original_Tag = R13 #Germany
+                original_tag = R19 #North Germany
+                original_tag = R25 #South Germany
+            }
+        }
+        available = {
+            is_subject = no
+            #Moselland
+            custom_trigger_tooltip = {
+                tooltip = rpg_germany_required_states_moselland
+                controls_state = 42 #Moselland
+            }
+            #Wurttemberg
+            custom_trigger_tooltip = {
+                tooltip = rpg_germany_required_states_wurttemberg
+                controls_state = 50 #Wurttemberg
+            }
+            #Rhineland
+            custom_trigger_tooltip = {
+                tooltip = rpg_germany_required_states_rhineland
+                controls_state = 51 #Rhineland
+            }
+            #Oberbayern
+            custom_trigger_tooltip = {
+                tooltip = rpg_germany_required_states_oberbayern
+                controls_state = 52 #Oberbayern
+            }
+            #Niederbayern
+            custom_trigger_tooltip = {
+                tooltip = rpg_germany_required_states_niederbayern
+                controls_state = 53 #Niederbayern
+            }
+            #Franken
+            custom_trigger_tooltip = {
+                tooltip = rpg_germany_required_states_franken
+                controls_state = 54 #Fraken
+            }
+            #Hessen
+            custom_trigger_tooltip = {
+                tooltip = rpg_germany_required_states_hessen
+                controls_state = 55 #Hessen
+            }
+            #Weser-Ems
+            custom_trigger_tooltip = {
+                tooltip = rpg_germany_required_states_weser_ems
+                controls_state = 56 #Weser-Ems
+            }
+            #Westfalen
+            custom_trigger_tooltip = {
+                tooltip = rpg_germany_required_states_westfalen
+                controls_state = 57 #Westfalen
+            }
+            #Schleswig-Holstein
+            custom_trigger_tooltip = {
+                tooltip = rpg_germany_required_states_schleswig_holstein
+                controls_state = 58 #Schleswig-Holstein
+            }
+            #Hannover
+            custom_trigger_tooltip = {
+                tooltip = rpg_germany_required_states_hannover
+                controls_state = 59 #Hannover
+            }
+            #Thuringen
+            custom_trigger_tooltip = {
+                tooltip = rpg_germany_required_states_thuringen
+                controls_state = 60 #Thuringen
+            }
+            #Mecklenburg
+            custom_trigger_tooltip = {
+                tooltip = rpg_germany_required_states_mecklenburg
+                controls_state = 61 #Mecklenburg
+            }
+            #Vorpommern
+            custom_trigger_tooltip = {
+                tooltip = rpg_germany_required_states_vorpommern
+                controls_state = 62 #Vorpommern
+            }
+            #Brandenburg
+            custom_trigger_tooltip = {
+                tooltip = rpg_germany_required_states_brandenburg
+                controls_state = 64 #Brandenburg
+            }
+            #Sachsen
+            custom_trigger_tooltip = {
+                tooltip = rpg_germany_required_states_sachsen
+                controls_state = 65 #Sachsen
+            }
+            #Ostrhineland
+            custom_trigger_tooltip = {
+                tooltip = rpg_germany_required_states_ostrhineland
+                controls_state = 807 #Ostrhineland
+            }
+            #Frankfurt
+            custom_trigger_tooltip = {
+                tooltip = rpg_germany_required_states_frankfurt
+                controls_state = 808 #Frankfurt
+            }
+            #Baden
+            custom_trigger_tooltip = {
+                tooltip = rpg_germany_required_states_baden
+                controls_state = 809 #Baden
+            }
+        }
+        visible = {
+            OR = {
+                controls_state = 50 #Wurttemberg
+                controls_state = 52 #Oberbayern
+                controls_state = 55 #Hessen
+                controls_state = 58 #Schleswig-Holstein
+                controls_state = 64 #Brandenburg
+            }
+            NOT = {
+                original_tag = GER #Germany
+                original_Tag = R13 #Germany
+                original_tag = R19 #North Germany
+                original_tag = R25 #South Germany
+                has_global_flag = rpg_germany_flag
+            }
+        }
+        complete_effect = {
+            hidden_effect = {
+                42 = { add_core_of = R13 } #Moselland
+                51 = { add_core_of = R13 } #Rhineland
+                55 = { add_core_of = R13 } #Hessen
+                56 = { add_core_of = R13 } #Weser-Ems
+                57 = { add_core_of = R13 } #Westfalen
+                58 = { add_core_of = R13 } #Schleswig-Holstein
+                59 = { add_core_of = R13 } #Hannover
+                60 = { add_core_of = R13 } #Thuringen
+                61 = { add_core_of = R13 } #Mecklenburg
+                62 = { add_core_of = R13 } #Vorpommern
+                64 = { add_core_of = R13 } #Brandenburg
+                65 = { add_core_of = R13 } #Sachsen
+                50 = { add_core_of = R13 } #Wurttemberg
+                52 = { add_core_of = R13 } #Oberbayern
+                53 = { add_core_of = R13 } #Niederbayern
+                54 = { add_core_of = R13 } #Franken
+                807 = { add_core_of = R13 } #Ostrhineland
+                808 = { add_core_of = R13 } #Frankfurt
+                809 = { add_core_of = R13 } #Baden
+            }
+            custom_effect_tooltip = rpg_germany_coring_states
+            custom_effect_tooltip = rpg_germany_transfer_states
+            #Set compliance to 80 in all cores and instantiate collaboration government
+            custom_effect_tooltip = rpg_germany_puppet
+            hidden_effect = {
+                every_state = {
+                    limit = {
+                        is_core_of = R13
+                    }
+                    set_compliance = 80
+                }
+
+                if = {
+                    limit = { has_dlc = "La Resistance" }
+                    set_temp_variable = { country_to_initiate = R13 }
+                    instantiate_collaboration_government = yes
+                }
+                else = {
+                    release = R13
+                    puppet = R13
+                }
+                R13 = {
+                    transfer_technology = yes
+                }
+            }
+            #News event, set local flag, and set global flag
+            hidden_effect = {
+                ROOT = {
+                    set_country_flag = rpg_germany_country_flag
+                }
+                news_event = { id = rpg_news.13 hours = 6 }
+                set_global_flag = rpg_germany_flag
+            }
+        }
+        ai_will_do = {
+            factor = 0
+            modifier = {
+                factor = 0
+                is_historical_focus_on = yes
+            }
+        }
+    }
+}

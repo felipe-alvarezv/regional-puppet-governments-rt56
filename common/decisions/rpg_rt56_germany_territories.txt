@@ -1,18 +1,16 @@
 rpg_category_territories_germany = {
-    rpg_germany_istria = {
+    rpg_germany_gdynia = {
         allowed = {
             NOT = {
-                original_tag = ITA #Italy
-                original_tag = SLV #Slovenia
-                original_tag = YUG #Yugoslavia
+                original_tag = POL #Poland
                 original_tag = R13 #Germany
             }
         }
         available = {
             is_subject = no
             custom_trigger_tooltip = {
-                tooltip = rpg_germany_required_states_istria
-                controls_state = 736 #Istria
+                tooltip = rpg_germany_required_states_gdynia
+                controls_state = 810 #Gdynia
             }
         }
         visible = {
@@ -24,24 +22,22 @@ rpg_category_territories_germany = {
                 }
             }
             NOT = {
-                original_tag = ITA #Italy
-                original_tag = SLV #Slovenia
-                original_tag = YUG #Yugoslavia
+                original_tag = POL #Poland
                 original_tag = R13 #Germany
-                has_global_flag = rpg_germany_istria_flag
+                has_global_flag = rpg_germany_gdynia_flag
             }
         }
         complete_effect = {
-            custom_effect_tooltip = rpg_germany_coring_states_istria
-            custom_effect_tooltip = rpg_germany_transfer_states_istria
+            custom_effect_tooltip = rpg_germany_coring_states_gdynia
+            custom_effect_tooltip = rpg_germany_transfer_states_gdynia
             hidden_effect = {
-                736 = { add_core_of = R13 } #Istria
+                810 = { add_core_of = R13 } #Gdynia
                 R13 = {
-                    transfer_state = 736 #Istria
+                    transfer_state = 810 #Gdynia
                 }
             }
             hidden_effect = {
-                set_global_flag = rpg_germany_istria_flag
+                set_global_flag = rpg_germany_gdynia_flag
             }
         }
         ai_will_do = {
@@ -193,6 +189,55 @@ rpg_category_territories_germany = {
             }
             hidden_effect = {
                 set_global_flag = rpg_germany_south_jutland_flag
+            }
+        }
+        ai_will_do = {
+            factor = 0
+            modifier = {
+                factor = 0
+                is_historical_focus_on = yes
+            }
+        }
+    }
+    rpg_germany_eupen_malmedy = {
+        allowed = {
+            NOT = {
+                original_tag = BEL #Belgium
+                original_tag = R13 #Germany
+            }
+        }
+        available = {
+            is_subject = no
+            custom_trigger_tooltip = {
+                tooltip = rpg_germany_required_states_eupen_malmedy
+                controls_state = 828 #Eupen-Malmedy
+            }
+        }
+        visible = {
+            has_global_flag = rpg_germany_flag
+            R13 = {
+                OR = {
+                    is_puppet_of = FROM
+                    is_in_faction_with = FROM
+                }
+            }
+            NOT = {
+                original_tag = BEL #Belgium
+                original_tag = R13 #Germany
+                has_global_flag = rpg_germany_eupen_malmedy_flag
+            }
+        }
+        complete_effect = {
+            custom_effect_tooltip = rpg_germany_coring_states_eupen_malmedy
+            custom_effect_tooltip = rpg_germany_transfer_states_eupen_malmedy
+            hidden_effect = {
+                828 = { add_core_of = R13 } #Eupen-Malmedy
+                R13 = {
+                    transfer_state = 828 #Eupen-Malmedy
+                }
+            }
+            hidden_effect = {
+                set_global_flag = rpg_germany_eupen_malmedy_flag
             }
         }
         ai_will_do = {

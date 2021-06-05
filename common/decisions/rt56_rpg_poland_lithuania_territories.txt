@@ -1,0 +1,51 @@
+rpg_category_territories_poland_lithuania = {
+	rpg_poland_lithuania_gdynia = {
+		allowed = {
+			NOT = {
+				original_tag = POL #Poland
+				original_tag = R34 #Poland-Lithuania
+			}
+		}
+		available = {
+			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = rpg_poland_lithuania_required_states_gdynia
+                controls_state = 810 #Vidzeme
+			}
+		}
+		visible = {
+            has_global_flag = rpg_poland_lithuania_flag
+            R34 = {
+				OR = {
+					is_puppet_of = FROM
+					is_in_faction_with = FROM
+				}
+			}
+			NOT = {
+                original_tag = POL #Poland
+				original_tag = R34 #Poland-Lithuania
+                has_global_flag = rpg_poland_lithuania_gdynia_flag
+            }
+		}
+		complete_effect = {
+			custom_effect_tooltip = rpg_poland_lithuania_coring_states_gdynia
+			custom_effect_tooltip = rpg_poland_lithuania_transfer_states_gdynia
+			hidden_effect = {
+				810 = { add_core_of = R34 } #Vidzeme
+				R34 = {
+					transfer_state = 810 #Vidzeme
+				}
+			}
+			hidden_effect = {
+				set_global_flag = rpg_poland_lithuania_gdynia_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

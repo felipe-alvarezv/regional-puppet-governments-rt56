@@ -1,0 +1,198 @@
+rpg_category_territories_indonesia = {
+    rpg_indonesia_johor = {
+        allowed = {
+            NOT = {
+                original_tag = MAL #Malaysia
+                original_tag = R17 #Indonesia
+            }
+        }
+        available = {
+            is_subject = no
+            custom_trigger_tooltip = {
+                tooltip = rpg_indonesia_required_states_johor
+                controls_state = 814 #Johor
+            }
+        }
+        visible = {
+            has_global_flag = rpg_indonesia_flag
+            R17 = {
+                OR = {
+                    is_puppet_of = FROM
+                    is_in_faction_with = FROM
+                }
+            }
+            NOT = {
+                original_tag = MAL #Malaysia
+                original_tag = R17 #Indonesia
+                has_global_flag = rpg_indonesia_johor_flag
+            }
+        }
+        complete_effect = {
+            custom_effect_tooltip = rpg_indonesia_coring_states_johor
+            custom_effect_tooltip = rpg_indonesia_transfer_states_johor
+            hidden_effect = {
+                814 = { add_core_of = R17 } #Johor
+                R17 = {
+                    transfer_state = 814 #Johor
+                }
+            }
+            hidden_effect = {
+                set_global_flag = rpg_indonesia_johor_flag
+            }
+        }
+        ai_will_do = {
+            factor = 0
+            modifier = {
+                factor = 0
+                is_historical_focus_on = yes
+            }
+        }
+    }
+	rpg_indonesia_kedah = {
+        allowed = {
+            NOT = {
+                original_tag = MAL #Malaysia
+                original_tag = R17 #Indonesia
+            }
+        }
+        available = {
+            is_subject = no
+            custom_trigger_tooltip = {
+                tooltip = rpg_indonesia_required_states_kedah
+                controls_state = 832 #Kedah
+            }
+        }
+        visible = {
+            has_global_flag = rpg_indonesia_flag
+            R17 = {
+                OR = {
+                    is_puppet_of = FROM
+                    is_in_faction_with = FROM
+                }
+            }
+            NOT = {
+                original_tag = MAL #Malaysia
+                original_tag = R17 #Indonesia
+                has_global_flag = rpg_indonesia_kedah_flag
+            }
+        }
+        complete_effect = {
+            custom_effect_tooltip = rpg_indonesia_coring_states_kedah
+            custom_effect_tooltip = rpg_indonesia_transfer_states_kedah
+            hidden_effect = {
+                832 = { add_core_of = R17 } #Kedah
+                R17 = {
+                    transfer_state = 832 #Kedah
+                }
+            }
+            hidden_effect = {
+                set_global_flag = rpg_indonesia_kedah_flag
+            }
+        }
+        ai_will_do = {
+            factor = 0
+            modifier = {
+                factor = 0
+                is_historical_focus_on = yes
+            }
+        }
+    }
+    rpg_indonesia_pahang = {
+        allowed = {
+            NOT = {
+                original_tag = MAL #Malaysia
+                original_tag = R17 #Indonesia
+            }
+        }
+        available = {
+            is_subject = no
+            custom_trigger_tooltip = {
+                tooltip = rpg_indonesia_required_states_pahang
+                controls_state = 833 #Pahang
+            }
+        }
+        visible = {
+            has_global_flag = rpg_indonesia_flag
+            R17 = {
+                OR = {
+                    is_puppet_of = FROM
+                    is_in_faction_with = FROM
+                }
+            }
+            NOT = {
+                original_tag = MAL #Malaysia
+                original_tag = R17 #Indonesia
+                has_global_flag = rpg_indonesia_pahang_flag
+            }
+        }
+        complete_effect = {
+            custom_effect_tooltip = rpg_indonesia_coring_states_pahang
+            custom_effect_tooltip = rpg_indonesia_transfer_states_pahang
+            hidden_effect = {
+                833 = { add_core_of = R17 } #Pahang
+                R17 = {
+                    transfer_state = 833 #Pahang
+                }
+            }
+            hidden_effect = {
+                set_global_flag = rpg_indonesia_pahang_flag
+            }
+        }
+        ai_will_do = {
+            factor = 0
+            modifier = {
+                factor = 0
+                is_historical_focus_on = yes
+            }
+        }
+    }
+    rpg_indonesia_riau_islands = {
+        allowed = {
+            NOT = {
+                original_tag = MAL #Malaysia
+                original_tag = R17 #Indonesia
+            }
+        }
+        available = {
+            is_subject = no
+            custom_trigger_tooltip = {
+                tooltip = rpg_indonesia_required_states_riau_islands
+                controls_state = 835 #Riau Islands
+            }
+        }
+        visible = {
+            has_global_flag = rpg_indonesia_flag
+            R17 = {
+                OR = {
+                    is_puppet_of = FROM
+                    is_in_faction_with = FROM
+                }
+            }
+            NOT = {
+                original_tag = MAL #Malaysia
+                original_tag = R17 #Indonesia
+                has_global_flag = rpg_indonesia_riau_islands_flag
+            }
+        }
+        complete_effect = {
+            custom_effect_tooltip = rpg_indonesia_coring_states_riau_islands
+            custom_effect_tooltip = rpg_indonesia_transfer_states_riau_islands
+            hidden_effect = {
+                835 = { add_core_of = R17 } #Riau Islands
+                R17 = {
+                    transfer_state = 835 #Riau Islands
+                }
+            }
+            hidden_effect = {
+                set_global_flag = rpg_indonesia_riau_islands_flag
+            }
+        }
+        ai_will_do = {
+            factor = 0
+            modifier = {
+                factor = 0
+                is_historical_focus_on = yes
+            }
+        }
+    }
+}

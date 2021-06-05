@@ -1,0 +1,153 @@
+rpg_category_territories_bulgaria = {
+    rpg_yugoslavia_northern_dobruja = {
+        allowed = {
+            NOT = {
+                original_tag = ROM #Romania
+                original_tag = R50 #Yugoslavia
+            }
+        }
+        available = {
+            is_subject = no
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_northern_dobruja
+                controls_state = 818 #Northern Dobruja
+            }
+        }
+        visible = {
+            has_global_flag = rpg_yugoslavia_flag
+            R50 = {
+                OR = {
+                    is_puppet_of = FROM
+                    is_in_faction_with = FROM
+                }
+            }
+            NOT = {
+                original_tag = ROM #Romania
+                original_tag = R50 #Yugoslavia
+                has_global_flag = rpg_yugoslavia_northern_dobruja_flag
+            }
+        }
+        complete_effect = {
+            custom_effect_tooltip = rpg_yugoslavia_coring_states_northern_dobruja
+            custom_effect_tooltip = rpg_yugoslavia_transfer_states_northern_dobruja
+            hidden_effect = {
+                818 = { add_core_of = R50 } #Northern Dobruja
+                R50 = {
+                    transfer_state = 818 #Northern Dobruja
+                }
+            }
+            hidden_effect = {
+                set_global_flag = rpg_yugoslavia_northern_dobruja_flag
+            }
+        }
+        ai_will_do = {
+            factor = 0
+            modifier = {
+                factor = 0
+                is_historical_focus_on = yes
+            }
+        }
+    }
+    rpg_yugoslavia_shkoder = {
+        allowed = {
+            NOT = {
+                original_tag = ALB #Albania
+                original_tag = R50 #Yugoslavia
+            }
+        }
+        available = {
+            is_subject = no
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_shkoder
+                controls_state = 836 #Shkoder
+            }
+        }
+        visible = {
+            has_global_flag = rpg_yugoslavia_flag
+            R50 = {
+                OR = {
+                    is_puppet_of = FROM
+                    is_in_faction_with = FROM
+                }
+            }
+            NOT = {
+                original_tag = ALB #Albania
+                original_tag = R50 #Yugoslavia
+                has_global_flag = rpg_yugoslavia_shkoder_flag
+            }
+        }
+        complete_effect = {
+            custom_effect_tooltip = rpg_yugoslavia_coring_states_shkoder
+            custom_effect_tooltip = rpg_yugoslavia_transfer_states_shkoder
+            hidden_effect = {
+                836 = { add_core_of = R50 } #Shkoder
+                R50 = {
+                    transfer_state = 836 #Shkoder
+                }
+            }
+            hidden_effect = {
+                set_global_flag = rpg_yugoslavia_shkoder_flag
+            }
+        }
+        ai_will_do = {
+            factor = 0
+            modifier = {
+                factor = 0
+                is_historical_focus_on = yes
+            }
+        }
+    }
+    rpg_yugoslavia_litorale = {
+        allowed = {
+            NOT = {
+                original_tag = ITA #Italy
+                original_tag = SLV #Slovenia
+                original_tag = YUG #Yugoslavia
+                original_tag = R50 #Yugoslavia
+            }
+        }
+        available = {
+            is_subject = no
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_litorale
+                controls_state = 837 #Litorale
+            }
+        }
+        visible = {
+            has_global_flag = rpg_yugoslavia_flag
+            R50 = {
+                OR = {
+                    is_puppet_of = FROM
+                    is_in_faction_with = FROM
+                }
+            }
+            NOT = {
+                original_tag = ITA #Italy
+                original_tag = SLV #Slovenia
+                original_tag = YUG #Yugoslavia
+                original_tag = R50 #Yugoslavia
+                has_global_flag = rpg_yugoslavia_litorale_flag
+            }
+        }
+        complete_effect = {
+            custom_effect_tooltip = rpg_yugoslavia_coring_states_litorale
+            custom_effect_tooltip = rpg_yugoslavia_transfer_states_litorale
+            hidden_effect = {
+                837 = { add_core_of = R50 } #Litorale
+                R50 = {
+                    transfer_state = 837 #Litorale
+                }
+            }
+            hidden_effect = {
+                set_global_flag = rpg_yugoslavia_litorale_flag
+            }
+        }
+        ai_will_do = {
+            factor = 0
+            modifier = {
+                factor = 0
+                is_historical_focus_on = yes
+            }
+        }
+    }
+}

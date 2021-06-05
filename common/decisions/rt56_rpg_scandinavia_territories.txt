@@ -1,0 +1,51 @@
+rpg_category_territories_scandinavia = {
+    rpg_scandinavia_south_jutland = {
+		allowed = {
+			NOT = {
+				original_tag = DEN #Denmark
+				original_tag = R24 #Scandinavia
+			}
+		}
+		available = {
+			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = rpg_scandinavia_required_states_south_jutland
+                controls_state = 827 #South Jutland
+			}
+		}
+		visible = {
+            has_global_flag = rpg_scandinavia_flag
+			R24 = {
+				OR = {
+					is_puppet_of = FROM
+					is_in_faction_with = FROM
+				}
+			}
+			NOT = {
+                original_tag = DEN #Denmark
+				original_tag = R24 #Scandinavia
+                has_global_flag = rpg_scandinavia_south_jutland_flag
+            }
+		}
+		complete_effect = {
+			custom_effect_tooltip = rpg_scandinavia_coring_states_south_jutland
+			custom_effect_tooltip = rpg_scandinavia_transfer_states_south_jutland
+			hidden_effect = {
+				827 = { add_core_of = R24 } #South Jutland
+				R24 = {
+					transfer_state = 827 #South Jutland
+				}
+			}
+			hidden_effect = {
+				set_global_flag = rpg_scandinavia_south_jutland_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

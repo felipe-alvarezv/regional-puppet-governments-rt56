@@ -1,0 +1,157 @@
+rpg_category_territories_prussia = {
+	rpg_prussia_ostrhineland = {
+		allowed = {
+			NOT = {
+				original_tag = DDR #East Germany
+				original_tag = GER #Germany
+				original_tag = WGR #West Germany
+				original_tag = R33 #Prussia
+			}
+		}
+		available = {
+			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = rpg_prussia_required_states_ostrhineland
+                controls_state = 807 #Ostrhineland
+			}
+		}
+		visible = {
+            has_global_flag = rpg_prussia_flag
+            R33 = {
+				OR = {
+					is_puppet_of = FROM
+					is_in_faction_with = FROM
+				}
+			}
+			NOT = {
+                original_tag = DDR #East Germany
+				original_tag = GER #Germany
+				original_tag = WGR #West Germany
+				original_tag = R33 #Prussia
+                has_global_flag = rpg_prussia_ostrhineland_flag
+            }
+		}
+		complete_effect = {
+			custom_effect_tooltip = rpg_prussia_coring_states_ostrhineland
+			custom_effect_tooltip = rpg_prussia_transfer_states_ostrhineland
+			hidden_effect = {
+				807 = { add_core_of = R33 } #Ostrhineland
+				R33 = {
+					transfer_state = 807 #Ostrhineland
+				}
+			}
+			hidden_effect = {
+				set_global_flag = rpg_prussia_ostrhineland_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+    rpg_prussia_frankfurt = {
+        allowed = {
+            NOT = {
+                original_tag = DDR #East Germany
+                original_tag = GER #Germany
+                original_tag = WGR #West Germany
+                original_tag = R33 #Prussia
+            }
+        }
+        available = {
+            is_subject = no
+            custom_trigger_tooltip = {
+                tooltip = rpg_prussia_required_states_frankfurt
+                controls_state = 808 #Frankfurt
+            }
+        }
+        visible = {
+            has_global_flag = rpg_prussia_flag
+            R33 = {
+                OR = {
+                    is_puppet_of = FROM
+                    is_in_faction_with = FROM
+                }
+            }
+            NOT = {
+                original_tag = DDR #East Germany
+                original_tag = GER #Germany
+                original_tag = WGR #West Germany
+                original_tag = R33 #Prussia
+                has_global_flag = rpg_prussia_frankfurt_flag
+            }
+        }
+        complete_effect = {
+            custom_effect_tooltip = rpg_prussia_coring_states_frankfurt
+            custom_effect_tooltip = rpg_prussia_transfer_states_frankfurt
+            hidden_effect = {
+                808 = { add_core_of = R33 } #Frankfurt
+                R33 = {
+                    transfer_state = 808 #Frankfurt
+                }
+            }
+            hidden_effect = {
+                set_global_flag = rpg_prussia_frankfurt_flag
+            }
+        }
+        ai_will_do = {
+            factor = 0
+            modifier = {
+                factor = 0
+                is_historical_focus_on = yes
+            }
+        }
+    }
+    rpg_prussia_gdynia = {
+        allowed = {
+            NOT = {
+                original_tag = POL #Poland
+                original_tag = R33 #Prussia
+            }
+        }
+        available = {
+            is_subject = no
+            custom_trigger_tooltip = {
+                tooltip = rpg_prussia_required_states_gdynia
+                controls_state = 810 #Gdynia
+            }
+        }
+        visible = {
+            has_global_flag = rpg_prussia_flag
+            R33 = {
+                OR = {
+                    is_puppet_of = FROM
+                    is_in_faction_with = FROM
+                }
+            }
+            NOT = {
+                original_tag = POL #Poland
+                original_tag = R33 #Prussia
+                has_global_flag = rpg_prussia_gdynia_flag
+            }
+        }
+        complete_effect = {
+            custom_effect_tooltip = rpg_prussia_coring_states_gdynia
+            custom_effect_tooltip = rpg_prussia_transfer_states_gdynia
+            hidden_effect = {
+                810 = { add_core_of = R33 } #Gdynia
+                R33 = {
+                    transfer_state = 810 #Gdynia
+                }
+            }
+            hidden_effect = {
+                set_global_flag = rpg_prussia_gdynia_flag
+            }
+        }
+        ai_will_do = {
+            factor = 0
+            modifier = {
+                factor = 0
+                is_historical_focus_on = yes
+            }
+        }
+    }
+}

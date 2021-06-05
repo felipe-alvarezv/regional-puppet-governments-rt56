@@ -1,0 +1,93 @@
+rpg_category = {
+	rpg_mongolia = {
+		allowed = {
+			NOT = {
+				original_tag = MEN #Mengkukuo
+				original_tag = MON #Mongolia
+				original_tag = R47 #Mongolia
+			}
+		}
+		available = {
+			is_subject = no
+			#Mongolia
+			custom_trigger_tooltip = {
+				tooltip = rpg_mongolia_required_states_mongolia
+				controls_state = 330 #Mongolia
+			}
+			#Gobi-Altai
+            custom_trigger_tooltip = {
+                tooltip = rpg_gobi_altai_required_states_gobi_altai
+                controls_state = 848 #Gobi-Altai
+            }
+            #Khentii
+            custom_trigger_tooltip = {
+                tooltip = rpg_khentii_required_states_khentii
+                controls_state = 849 #Khentii
+            }
+            #Khovsgol
+            custom_trigger_tooltip = {
+                tooltip = rpg_khovsgol_required_states_khovsgol
+                controls_state = 850 #Khovsgol
+            }
+		}
+		visible = {
+			OR = {
+				controls_state = 330 #Mongolia
+			}
+			NOT = {
+				original_tag = MEN #Mengkukuo
+				original_tag = MON #Mongolia
+				original_tag = R47 #Mongolia
+                has_global_flag = rpg_mongolia_flag
+            }
+		}
+		complete_effect = {
+			hidden_effect = {
+				330 = { add_core_of = R47 } #Mongolia
+				848 = { add_core_of = R47 } #Gobi-Altai
+				849 = { add_core_of = R47 } #Khentii
+				850 = { add_core_of = R47 } #Khovsgol
+			}
+			custom_effect_tooltip = rpg_mongolia_coring_states
+			custom_effect_tooltip = rpg_mongolia_transfer_states
+			#Set compliance to 80 in all cores and instantiate collaboration government
+			custom_effect_tooltip = rpg_mongolia_puppet
+			hidden_effect = {
+				every_state = {
+					limit = {
+						is_core_of = R47
+					}
+					set_compliance = 80
+				}
+
+				if = {
+					limit = { has_dlc = "La Resistance" }
+					set_temp_variable = { country_to_initiate = R47 }
+					instantiate_collaboration_government = yes
+				}
+				else = {
+					release = R47
+					puppet = R47
+				}
+				R47 = {
+                    transfer_technology = yes
+                }
+			}
+			#News event, set local flag, and set global flag
+			hidden_effect = {
+				ROOT = {
+					set_country_flag = rpg_mongolia_country_flag
+				}
+				news_event = { id = rpg_news.47 hours = 6 }
+				set_global_flag = rpg_mongolia_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

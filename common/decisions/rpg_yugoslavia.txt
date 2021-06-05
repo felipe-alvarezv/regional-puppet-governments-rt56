@@ -1,0 +1,209 @@
+rpg_category = {
+	rpg_yugoslavia = {
+		allowed = {
+			NOT = {
+				original_tag = YUG #Yugoslavia
+				original_tag = R50 #Yugoslavia
+			}
+		}
+		available = {
+			is_subject = no
+            #Vojvodina
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_vojvodina
+                controls_state = 45 #Vojvodina
+            }
+            #Slovenia
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_slovenia
+                controls_state = 102 #Slovenia
+            }
+            #Dalmatia
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_dalmatia
+                controls_state = 103 #Dalmatia
+            }
+            #Bosnia
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_bosnia
+                controls_state = 104 #Bosnia
+            }
+            #Montenegro
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_montenegro
+                controls_state = 105 #Montenegro
+            }
+            #Macedonia
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_macedonia
+                controls_state = 106 #Macedonia
+            }
+            #Serbia
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_serbia
+                controls_state = 107 #Serbia
+            }
+            #Morava
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_morava
+                controls_state = 108 #Morava
+            }
+            #Croatia
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_croatia
+                controls_state = 109 #Croatia
+            }
+            #West Banat
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_west_banat
+                controls_state = 764 #West Banat
+            }
+            #Kosovo
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_kosovo
+                controls_state = 802 #Kosovo
+            }
+            #Southern Serbia
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_southern_serbia
+                controls_state = 803 #Southern Serbia
+            }
+            #Herzegovina
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_herzegovina
+                controls_state = 804 #Herzegovina
+            }
+            #Debar
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_debar
+                controls_state = 813 #Debar
+            }
+            #Syrmia
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_syrmia
+                controls_state = 815 #Syrmia
+            }
+            #Mitrovica
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_mitrovica
+                controls_state = 816 #Mitrovica
+            }
+            #Prekmurje
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_prekmurje
+                controls_state = 819 #Prekmurje
+            }
+            #Lower Styria
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_lower_styria
+                controls_state = 820 #Lower Styria
+            }
+            #Kvarner
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_kvarner
+                controls_state = 821 #Kvarner
+            }
+            #Slavonia
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_slavonia
+                controls_state = 822 #Slavonia
+            }
+            #Baja Luka
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_baja_luka
+                controls_state = 824 #Baja Luka
+            }
+            #Posavina
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_posavina
+                controls_state = 825 #Posavina
+            }
+            #West Sandzak
+            custom_trigger_tooltip = {
+                tooltip = rpg_yugoslavia_required_states_west_sandzak
+                controls_state = 826 #West Sandzak
+            }
+		}
+		visible = {
+			OR = {
+                controls_state = 104 #Bosnia
+                controls_state = 102 #Slovenia
+                controls_state = 107 #Serbia
+                controls_state = 109 #Croatia
+
+			}
+			NOT = {
+				original_tag = YUG #Yugoslavia
+				original_tag = R50 #Yugoslavia
+                has_global_flag = rpg_yugoslavia_flag
+            }
+		}
+		complete_effect = {
+			hidden_effect = {
+				45 = { add_core_of = R50 } #Vojvodina
+                102 = { add_core_of = R50 } #Slovenia
+                103 = { add_core_of = R50 } #Dalmatia
+                104 = { add_core_of = R50 } #Bosnia
+                105 = { add_core_of = R50 } #Montenegro
+                106 = { add_core_of = R50 } #Macedonia
+                107 = { add_core_of = R50 } #Serbia
+                108 = { add_core_of = R50 } #Morava
+                109 = { add_core_of = R50 } #Croatia
+                764 = { add_core_of = R50 } #West Banat
+                802 = { add_core_of = R50 } #Kosovo
+                803 = { add_core_of = R50 } #Southern Serbia
+                804 = { add_core_of = R50 } #Herzegovina
+                813 = { add_core_of = R50 } #Debar
+                815 = { add_core_of = R50 } #Syrmia
+                816 = { add_core_of = R50 } #Mitrovica
+                819 = { add_core_of = R50 } #Prekmurje
+                820 = { add_core_of = R50 } #Lower Styria
+                821 = { add_core_of = R50 } #Kvarner
+                822 = { add_core_of = R50 } #Slavonia
+                824 = { add_core_of = R50 } #Banja Luka
+                825 = { add_core_of = R50 } #Posavina
+                826 = { add_core_of = R50 } #West Sandzak
+			}
+			custom_effect_tooltip = rpg_yugoslavia_coring_states
+			custom_effect_tooltip = rpg_yugoslavia_transfer_states
+			#Set compliance to 80 in all cores and instantiate collaboration government
+			custom_effect_tooltip = rpg_yugoslavia_puppet
+			hidden_effect = {
+				every_state = {
+					limit = {
+						is_core_of = R50
+					}
+					set_compliance = 80
+				}
+
+				if = {
+					limit = { has_dlc = "La Resistance" }
+					set_temp_variable = { country_to_initiate = R50 }
+					instantiate_collaboration_government = yes
+				}
+				else = {
+					release = R50
+					puppet = R50
+				}
+				R50 = {
+                    transfer_technology = yes
+                }
+			}
+			#News event, set local flag, and set global flag
+			hidden_effect = {
+				ROOT = {
+					set_country_flag = rpg_yugoslavia_country_flag
+				}
+				news_event = { id = rpg_news.50 hours = 6 }
+				set_global_flag = rpg_yugoslavia_flag
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
